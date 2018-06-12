@@ -12,7 +12,7 @@ This project is based on the following [Docker] containers:
 - `monit`: a [Node.js] process monitoring the `test/#` topics
 - `willy`: a [Node.js] process publishing on `test/connected`
 
-The goal of the project is to demonstrate that The `mqtt` container is the [Mosquitto] instance is relaying `willy` last will as expected to the `monit` instance.
+The goal of the project is to demonstrate that the `mqtt` container (a [Mosquitto] instance) is as expected relaying `willy` last will to the `monit` instance.
 
 The `willy` process publishes on a cycle basis carried out by the following steps:
 
