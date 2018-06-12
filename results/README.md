@@ -106,7 +106,7 @@ willy_1  | 2018-06-12T07:09:44.332956200Z disconnected
 
 ## `2018-06-12T07` results with a native MQTT connection
 
-The following logs exist and were produced by using native MQTT connections (port `1883`):
+The following logs were produced by using native MQTT connections (port `1883`):
 
 - [no_last_will](./2018-06-12T07:04:21.227103300Z-no-last-will.txt) shows what happens without any last will setting on connection
 - [last_will](./2018-06-12T07:09:21.365715700Z-last-will.txt) shows what happens with the last will set on connection
