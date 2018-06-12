@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  mqtt:
+    image: gautaz/mosquitto-fixes:1.4.15-0
+    restart: "unless-stopped"
+
+  monit:
+    image: node:8.11.2-alpine
+    restart: "unless-stopped"
+    depends_on: ["mqtt"]
+    user: "node"
+    volumes:
+      - ./monit:/home/node/app
+    working_dir: "/home/node/app"
+    command: "npm start"
+
+  willy:
+    image: node:8.11.2-alpine
+    restart: "unless-stopped"
+    depends_on: ["mqtt", "monit"]
+    user: "node"
+    volumes:
+      - ./willy:/home/node/app
+    working_dir: "/home/node/app"
+    environment:
+      - LAST_WILL=false
+    command: "npm start"
