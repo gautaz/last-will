@@ -5,6 +5,10 @@ const topic = 'test/connected';
 const cycle = (count) => {
   console.log(`______________________________________ Cycle ${count} ______________________________________`);
 
+  const mqttURL = process.env.WEBSOCKET === "true"
+    ? 'ws://mqtt:9883'
+    : 'mqtt://mqtt:1883'
+
   const lastWill = process.env.LAST_WILL === "true" ? {
     will: {
       topic,
@@ -12,15 +16,13 @@ const cycle = (count) => {
     }
   } : {}
 
-  const mqttConfiguration = {
-    host: 'mqtt',
-    port: 1883,
+  const mqttOptions = {
     ...lastWill
   };
 
-  console.log('Connection configuration', mqttConfiguration);
+  console.log('Connection configuration', mqttURL, mqttOptions);
 
-  const client = connect(mqttConfiguration);
+  const client = connect(mqttURL, mqttOptions);
 
   const pubConnected = value => new Promise((resolve, reject) => client.publish(topic, value, err => {
     if (err) {

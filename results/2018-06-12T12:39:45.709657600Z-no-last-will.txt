@@ -1,0 +1,124 @@
+14:39 $ WILLY_WEBSOCKET=true docker-compose up -d && docker-compose logs -t -f
+Creating network "last-will_default" with the default driver
+Creating last-will_mqtt_1 ... done
+Creating last-will_monit_1 ... done
+Creating last-will_willy_1 ... done
+Attaching to last-will_willy_1, last-will_monit_1, last-will_mqtt_1
+monit_1  | 2018-06-12T12:39:45.709657600Z
+monit_1  | 2018-06-12T12:39:45.709717600Z > monit@1.0.0 start /home/node/app
+monit_1  | 2018-06-12T12:39:45.709728900Z > npm install && node index.js
+monit_1  | 2018-06-12T12:39:45.709738700Z
+willy_1  | 2018-06-12T12:39:46.314652600Z
+willy_1  | 2018-06-12T12:39:46.314700400Z > willy@1.0.0 start /home/node/app
+willy_1  | 2018-06-12T12:39:46.314713400Z > npm install && node index.js
+willy_1  | 2018-06-12T12:39:46.314722100Z
+mqtt_1   | 2018-06-12T12:39:44.806596200Z Warning: store_clean_interval is no longer needed.
+mqtt_1   | 2018-06-12T12:39:44.806711500Z 1528807184: mosquitto version 1.4.15 (build date 2018-03-13 11:37:40+0000) starting
+mqtt_1   | 2018-06-12T12:39:44.806770000Z 1528807184: Config loaded from /etc/mosquitto/mosquitto.conf.
+mqtt_1   | 2018-06-12T12:39:44.806783800Z 1528807184: Opening ipv4 listen socket on port 1883.
+mqtt_1   | 2018-06-12T12:39:44.806793500Z 1528807184: Opening ipv6 listen socket on port 1883.
+mqtt_1   | 2018-06-12T12:39:44.806802800Z 1528807184: Opening websockets listen socket on port 9883.
+monit_1  | 2018-06-12T12:39:46.930650000Z npm WARN monit@1.0.0 No description
+monit_1  | 2018-06-12T12:39:46.931031600Z npm WARN monit@1.0.0 No repository field.
+monit_1  | 2018-06-12T12:39:46.931220100Z
+monit_1  | 2018-06-12T12:39:46.931744500Z up to date in 0.765s
+mqtt_1   | 2018-06-12T12:39:47.391845800Z 1528807187: New connection from 172.22.0.3 on port 1883.
+mqtt_1   | 2018-06-12T12:39:47.394830400Z 1528807187: New client connected from 172.22.0.3 as mqttjs_6c91c423 (c1, k60).
+mqtt_1   | 2018-06-12T12:39:47.394884600Z 1528807187: Sending CONNACK to mqttjs_6c91c423 (0, 0)
+mqtt_1   | 2018-06-12T12:39:47.406463300Z 1528807187: Received SUBSCRIBE from mqttjs_6c91c423
+mqtt_1   | 2018-06-12T12:39:47.406511900Z 1528807187:   test/# (QoS 0)
+mqtt_1   | 2018-06-12T12:39:47.406526600Z 1528807187: mqttjs_6c91c423 0 test/#
+mqtt_1   | 2018-06-12T12:39:47.406586100Z 1528807187: Sending SUBACK to mqttjs_6c91c423
+willy_1  | 2018-06-12T12:39:47.558061300Z npm WARN willy@1.0.0 No description
+willy_1  | 2018-06-12T12:39:47.560459000Z npm WARN willy@1.0.0 No repository field.
+willy_1  | 2018-06-12T12:39:47.562125300Z
+willy_1  | 2018-06-12T12:39:47.562134200Z up to date in 0.689s
+willy_1  | 2018-06-12T12:39:47.858569600Z ______________________________________ Cycle 0 ______________________________________
+willy_1  | 2018-06-12T12:39:47.860504800Z Connection configuration ws://mqtt:9883 {}
+mqtt_1   | 2018-06-12T12:39:48.026639500Z 1528807188: New client connected from 172.22.0.4 as mqttjs_fba47205 (c1, k60).
+mqtt_1   | 2018-06-12T12:39:48.026720400Z 1528807188: Sending CONNACK to mqttjs_fba47205 (0, 0)
+willy_1  | 2018-06-12T12:39:48.033110000Z connected
+willy_1  | 2018-06-12T12:39:48.034627400Z connected: true was published
+mqtt_1   | 2018-06-12T12:39:48.039427300Z 1528807188: Received PUBLISH from mqttjs_fba47205 (d0, q0, r0, m0, 'test/connected', ... (4 bytes))
+mqtt_1   | 2018-06-12T12:39:48.040003200Z 1528807188: Sending PUBLISH to mqttjs_6c91c423 (d0, q0, r0, m0, 'test/connected', ... (4 bytes))
+monit_1  | 2018-06-12T12:39:48.042523500Z test/connected: true
+mqtt_1   | 2018-06-12T12:40:08.048956200Z 1528807208: Received PUBLISH from mqttjs_fba47205 (d0, q0, r0, m0, 'test/connected', ... (5 bytes))
+mqtt_1   | 2018-06-12T12:40:08.050083900Z 1528807208: Sending PUBLISH to mqttjs_6c91c423 (d0, q0, r0, m0, 'test/connected', ... (5 bytes))
+mqtt_1   | 2018-06-12T12:40:08.050373100Z 1528807208: Received DISCONNECT from mqttjs_fba47205
+willy_1  | 2018-06-12T12:40:08.048456000Z connected: false was published
+willy_1  | 2018-06-12T12:40:08.054082800Z disconnect
+monit_1  | 2018-06-12T12:40:08.056252700Z test/connected: false
+willy_1  | 2018-06-12T12:40:08.058952000Z disconnected
+mqtt_1   | 2018-06-12T12:40:08.256939500Z 1528807208: Client mqttjs_fba47205 disconnected.
+willy_1  | 2018-06-12T12:40:18.030523500Z ______________________________________ Cycle 1 ______________________________________
+willy_1  | 2018-06-12T12:40:18.030579400Z Connection configuration ws://mqtt:9883 {}
+mqtt_1   | 2018-06-12T12:40:18.190026900Z 1528807218: New client connected from 172.22.0.4 as mqttjs_a0f765ed (c1, k60).
+mqtt_1   | 2018-06-12T12:40:18.190084700Z 1528807218: Sending CONNACK to mqttjs_a0f765ed (0, 0)
+willy_1  | 2018-06-12T12:40:18.191143800Z connected
+willy_1  | 2018-06-12T12:40:18.191473100Z connected: true was published
+monit_1  | 2018-06-12T12:40:18.193711600Z test/connected: true
+mqtt_1   | 2018-06-12T12:40:18.192667000Z 1528807218: Received PUBLISH from mqttjs_a0f765ed (d0, q0, r0, m0, 'test/connected', ... (4 bytes))
+mqtt_1   | 2018-06-12T12:40:18.193344600Z 1528807218: Sending PUBLISH to mqttjs_6c91c423 (d0, q0, r0, m0, 'test/connected', ... (4 bytes))
+willy_1  | 2018-06-12T12:40:38.210853700Z connected: false was published
+mqtt_1   | 2018-06-12T12:40:38.212043200Z 1528807238: Received PUBLISH from mqttjs_a0f765ed (d0, q0, r0, m0, 'test/connected', ... (5 bytes))
+mqtt_1   | 2018-06-12T12:40:38.212096300Z 1528807238: Received DISCONNECT from mqttjs_a0f765ed
+willy_1  | 2018-06-12T12:40:38.213433800Z disconnect
+willy_1  | 2018-06-12T12:40:38.213467000Z disconnected
+mqtt_1   | 2018-06-12T12:40:38.213373900Z 1528807238: Sending PUBLISH to mqttjs_6c91c423 (d0, q0, r0, m0, 'test/connected', ... (5 bytes))
+monit_1  | 2018-06-12T12:40:38.214418100Z test/connected: false
+mqtt_1   | 2018-06-12T12:40:38.314020200Z 1528807238: Client mqttjs_a0f765ed disconnected.
+mqtt_1   | 2018-06-12T12:40:45.198665900Z 1528807245: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+mqtt_1   | 2018-06-12T12:40:47.347673700Z 1528807247: Received PINGREQ from mqttjs_6c91c423
+mqtt_1   | 2018-06-12T12:40:47.347838800Z 1528807247: Sending PINGRESP to mqttjs_6c91c423
+willy_1  | 2018-06-12T12:40:48.188313000Z ______________________________________ Cycle 2 ______________________________________
+willy_1  | 2018-06-12T12:40:48.188419700Z Connection configuration ws://mqtt:9883 {}
+mqtt_1   | 2018-06-12T12:40:48.368636000Z 1528807248: New client connected from 172.22.0.4 as mqttjs_28e8d546 (c1, k60).
+mqtt_1   | 2018-06-12T12:40:48.368702600Z 1528807248: Sending CONNACK to mqttjs_28e8d546 (0, 0)
+willy_1  | 2018-06-12T12:40:48.368997800Z connected
+willy_1  | 2018-06-12T12:40:48.369267000Z connected: true was published
+mqtt_1   | 2018-06-12T12:40:48.371621500Z 1528807248: Received PUBLISH from mqttjs_28e8d546 (d0, q0, r0, m0, 'test/connected', ... (4 bytes))
+monit_1  | 2018-06-12T12:40:48.373470200Z test/connected: true
+mqtt_1   | 2018-06-12T12:40:48.373008400Z 1528807248: Sending PUBLISH to mqttjs_6c91c423 (d0, q0, r0, m0, 'test/connected', ... (4 bytes))
+willy_1  | 2018-06-12T12:41:08.391959800Z connected: false was published
+willy_1  | 2018-06-12T12:41:08.392062400Z disconnect
+mqtt_1   | 2018-06-12T12:41:08.391899800Z 1528807268: Received PUBLISH from mqttjs_28e8d546 (d0, q0, r0, m0, 'test/connected', ... (5 bytes))
+mqtt_1   | 2018-06-12T12:41:08.391966000Z 1528807268: Received DISCONNECT from mqttjs_28e8d546
+monit_1  | 2018-06-12T12:41:08.394007900Z test/connected: false
+mqtt_1   | 2018-06-12T12:41:08.394176200Z 1528807268: Sending PUBLISH to mqttjs_6c91c423 (d0, q0, r0, m0, 'test/connected', ... (5 bytes))
+willy_1  | 2018-06-12T12:41:08.392752300Z disconnected
+mqtt_1   | 2018-06-12T12:41:08.495555700Z 1528807268: Client mqttjs_28e8d546 disconnected.
+willy_1  | 2018-06-12T12:41:18.358688100Z ______________________________________ Cycle 3 ______________________________________
+willy_1  | 2018-06-12T12:41:18.358781900Z Connection configuration ws://mqtt:9883 {}
+mqtt_1   | 2018-06-12T12:41:18.554318500Z 1528807278: New client connected from 172.22.0.4 as mqttjs_2253d67a (c1, k60).
+mqtt_1   | 2018-06-12T12:41:18.554396600Z 1528807278: Sending CONNACK to mqttjs_2253d67a (0, 0)
+willy_1  | 2018-06-12T12:41:18.557603300Z connected
+mqtt_1   | 2018-06-12T12:41:18.557603300Z 1528807278: Received PUBLISH from mqttjs_2253d67a (d0, q0, r0, m0, 'test/connected', ... (4 bytes))
+mqtt_1   | 2018-06-12T12:41:18.558976600Z 1528807278: Sending PUBLISH to mqttjs_6c91c423 (d0, q0, r0, m0, 'test/connected', ... (4 bytes))
+monit_1  | 2018-06-12T12:41:18.558891900Z test/connected: true
+willy_1  | 2018-06-12T12:41:18.557691300Z connected: true was published
+willy_1  | 2018-06-12T12:41:38.577197500Z connected: false was published
+willy_1  | 2018-06-12T12:41:38.577824400Z disconnect
+mqtt_1   | 2018-06-12T12:41:46.044986600Z 1528807306: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+mqtt_1   | 2018-06-12T12:41:47.304787600Z 1528807307: Received PINGREQ from mqttjs_6c91c423
+mqtt_1   | 2018-06-12T12:41:47.304910300Z 1528807307: Sending PINGRESP to mqttjs_6c91c423
+willy_1  | 2018-06-12T12:42:08.544903600Z disconnected
+willy_1  | 2018-06-12T12:42:18.519588700Z ______________________________________ Cycle 4 ______________________________________
+willy_1  | 2018-06-12T12:42:18.519695200Z Connection configuration ws://mqtt:9883 {}
+willy_1  | 2018-06-12T12:42:23.529129400Z disconnect
+willy_1  | 2018-06-12T12:42:29.539302400Z disconnect
+willy_1  | 2018-06-12T12:42:35.555340800Z disconnect
+willy_1  | 2018-06-12T12:42:41.565287200Z disconnect
+mqtt_1   | 2018-06-12T12:42:47.027896300Z 1528807367: Saving in-memory database to /var/lib/mosquitto/mosquitto.db.
+mqtt_1   | 2018-06-12T12:42:47.267660900Z 1528807367: Received PINGREQ from mqttjs_6c91c423
+mqtt_1   | 2018-06-12T12:42:47.268202100Z 1528807367: Sending PINGRESP to mqttjs_6c91c423
+willy_1  | 2018-06-12T12:42:47.576332600Z disconnect
+mqtt_1   | 2018-06-12T12:42:47.986271600Z 1528807367: Client mqttjs_2253d67a has exceeded timeout, disconnecting.
+willy_1  | 2018-06-12T12:42:53.588598400Z disconnect
+willy_1  | 2018-06-12T12:42:59.606122200Z disconnect
+willy_1  | 2018-06-12T12:43:05.614637900Z disconnect
+mqtt_1   | 2018-06-12T12:43:09.079711300Z 1528807389: Socket error on client mqttjs_2253d67a, disconnecting.
+willy_1  | 2018-06-12T12:43:11.623289800Z disconnect
+willy_1  | 2018-06-12T12:43:17.633931600Z disconnect
+willy_1  | 2018-06-12T12:43:23.641150300Z disconnect
+willy_1  | 2018-06-12T12:43:29.655907200Z disconnect
+willy_1  | 2018-06-12T12:43:35.666300300Z disconnect

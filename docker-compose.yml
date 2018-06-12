@@ -25,5 +25,6 @@ services:
       - ./willy:/home/node/app
     working_dir: "/home/node/app"
     environment:
-      - LAST_WILL=false
+      - LAST_WILL=${WILLY_LAST_WILL:-false}
+      - WEBSOCKET=${WILLY_WEBSOCKET:-false}
     command: "npm start"
