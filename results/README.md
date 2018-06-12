@@ -1,6 +1,6 @@
 # Test results
 
-The complete test results are available as session log files in the same directory that this README file.
+The complete test results are available as session log files in the same directory than this README file.
 
 > Be aware that the log's lines sequence does not exactly match the execution sequence as its order reflects the moments Docker has taken into account the outputs of the containers.
 

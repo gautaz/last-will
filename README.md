@@ -29,6 +29,7 @@ All components are started and monitored with the following command:
 docker-compose up -d && docker-compose logs -t -f
 ```
 
+Depending on the `WEBSOCKET` environment variable value, `willy` will operate a native or a WebSocket connection.
 Depending on the `LAST_WILL` environment variable value, `willy` will ask or not the `mqtt` service for a last will during connection.
 
 In order to check that the last will feature is working as expected when `LAST_WILL=true`, a network disconnection is simulated with the following command just after `monit` has received the `true` value on the `test/connected` topic during `Cycle 3`:
